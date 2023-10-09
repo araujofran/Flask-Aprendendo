@@ -1,10 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
-
+@app.route("/")
 def homepage():
-    return "<h1>Pagina Inicial</h1>"
+    return render_template ("homepage.html")
 
-app.run(debug=True)
+@app.route("/cadastro")
+def cadastro():
+    return render_template ("cadastro.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
